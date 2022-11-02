@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A06C98A2912FF500046EE11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C9892912FF500046EE11 /* AppDelegate.swift */; };
 		4A06C98C2912FF500046EE11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C98B2912FF500046EE11 /* SceneDelegate.swift */; };
-		4A06C98E2912FF500046EE11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C98D2912FF500046EE11 /* ViewController.swift */; };
+		4A06C98E2912FF500046EE11 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C98D2912FF500046EE11 /* HomeViewController.swift */; };
 		4A06C9912912FF500046EE11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A06C98F2912FF500046EE11 /* Main.storyboard */; };
 		4A06C9942912FF500046EE11 /* PruebaApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C9922912FF500046EE11 /* PruebaApp.xcdatamodeld */; };
 		4A06C9962912FF520046EE11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A06C9952912FF520046EE11 /* Assets.xcassets */; };
@@ -17,6 +17,9 @@
 		4A06C9A42912FF520046EE11 /* PruebaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C9A32912FF520046EE11 /* PruebaAppTests.swift */; };
 		4A06C9AE2912FF520046EE11 /* PruebaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C9AD2912FF520046EE11 /* PruebaAppUITests.swift */; };
 		4A06C9B02912FF520046EE11 /* PruebaAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C9AF2912FF520046EE11 /* PruebaAppUITestsLaunchTests.swift */; };
+		4A06C9BE2913152D0046EE11 /* UserItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C9BC2913152D0046EE11 /* UserItemCellTableViewCell.swift */; };
+		4A06C9BF2913152D0046EE11 /* UserItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A06C9BD2913152D0046EE11 /* UserItemCell.xib */; };
+		4A06C9C1291315520046EE11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A06C9C0291315520046EE11 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +43,7 @@
 		4A06C9862912FF500046EE11 /* PruebaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A06C9892912FF500046EE11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A06C98B2912FF500046EE11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4A06C98D2912FF500046EE11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4A06C98D2912FF500046EE11 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A06C9902912FF500046EE11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A06C9932912FF500046EE11 /* PruebaApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PruebaApp.xcdatamodel; sourceTree = "<group>"; };
 		4A06C9952912FF520046EE11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +54,9 @@
 		4A06C9A92912FF520046EE11 /* PruebaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PruebaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A06C9AD2912FF520046EE11 /* PruebaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaAppUITests.swift; sourceTree = "<group>"; };
 		4A06C9AF2912FF520046EE11 /* PruebaAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PruebaAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4A06C9BC2913152D0046EE11 /* UserItemCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemCellTableViewCell.swift; sourceTree = "<group>"; };
+		4A06C9BD2913152D0046EE11 /* UserItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserItemCell.xib; sourceTree = "<group>"; };
+		4A06C9C0291315520046EE11 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +109,15 @@
 			children = (
 				4A06C9892912FF500046EE11 /* AppDelegate.swift */,
 				4A06C98B2912FF500046EE11 /* SceneDelegate.swift */,
-				4A06C98D2912FF500046EE11 /* ViewController.swift */,
+				4A06C98D2912FF500046EE11 /* HomeViewController.swift */,
 				4A06C98F2912FF500046EE11 /* Main.storyboard */,
 				4A06C9952912FF520046EE11 /* Assets.xcassets */,
 				4A06C9972912FF520046EE11 /* LaunchScreen.storyboard */,
 				4A06C99A2912FF520046EE11 /* Info.plist */,
 				4A06C9922912FF500046EE11 /* PruebaApp.xcdatamodeld */,
+				4A06C9BC2913152D0046EE11 /* UserItemCellTableViewCell.swift */,
+				4A06C9BD2913152D0046EE11 /* UserItemCell.xib */,
+				4A06C9C0291315520046EE11 /* Constants.swift */,
 			);
 			path = PruebaApp;
 			sourceTree = "<group>";
@@ -237,6 +246,7 @@
 				4A06C9992912FF520046EE11 /* LaunchScreen.storyboard in Resources */,
 				4A06C9962912FF520046EE11 /* Assets.xcassets in Resources */,
 				4A06C9912912FF500046EE11 /* Main.storyboard in Resources */,
+				4A06C9BF2913152D0046EE11 /* UserItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A06C98E2912FF500046EE11 /* ViewController.swift in Sources */,
+				4A06C9BE2913152D0046EE11 /* UserItemCellTableViewCell.swift in Sources */,
+				4A06C98E2912FF500046EE11 /* HomeViewController.swift in Sources */,
 				4A06C98A2912FF500046EE11 /* AppDelegate.swift in Sources */,
 				4A06C9942912FF500046EE11 /* PruebaApp.xcdatamodeld in Sources */,
 				4A06C98C2912FF500046EE11 /* SceneDelegate.swift in Sources */,
+				4A06C9C1291315520046EE11 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +460,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -475,6 +488,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
