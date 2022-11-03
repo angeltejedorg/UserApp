@@ -23,6 +23,15 @@ class UserItemCellTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setupCell(name: String?, phone: String?, email: String?) {
+        guard let name = name,
+              let phone = phone,
+              let email = email else { return }
+        
+        nameLabel.text = name
+        phoneNumberLabel.text = phone
+        emailLabel.text = email
+    }
 }
 
 

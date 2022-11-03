@@ -12,4 +12,6 @@ struct Constants {
     static let primaryColor = UIColor(red: 0.27, green: 0.42, blue: 0.24, alpha: 1.00)
     static let userItemCellIdentifier = "UserItemCell"
     static let userItemCellNibName = "UserItemCell"
+    static let notFoundCellNibName = "NotFoundCell"
+    static let notFoundCellIdentifier = "NotFoundCell"
 }
