@@ -1,6 +1,0 @@
-framework module Pods_PruebaApp {
-  umbrella header "Pods-PruebaApp-umbrella.h"
-
-  export *
-  module * { export * }
-}
