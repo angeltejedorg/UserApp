@@ -6,6 +6,7 @@ Steps to run project:
 
 1. Install Cocoapods v 1.11.3
 2. Run pod install con project
+3. Open PruebaApp.workspace file
 
 ![HomeView](https://user-images.githubusercontent.com/80083204/199880857-4fb29d03-f4ae-4a31-88a3-992e5f41e89b.jpeg)
 ![SearchView](https://user-images.githubusercontent.com/80083204/199880880-3f4c61b4-f6fa-4a12-9345-f193cd593658.jpeg)
