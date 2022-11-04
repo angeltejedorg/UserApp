@@ -7,10 +7,16 @@
 
 import UIKit
 
-class UserItemCellTableViewCell: UITableViewCell {
+
+class UserItemCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
+    @IBOutlet weak var publicationsButton: UIButton!
+    
+    var user: User?
+    weak var userInfoDelegate: UserInfoDelegate?
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,15 +29,19 @@ class UserItemCellTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupCell(name: String?, phone: String?, email: String?) {
-        guard let name = name,
-              let phone = phone,
-              let email = email else { return }
-        
-        nameLabel.text = name
-        phoneNumberLabel.text = phone
-        emailLabel.text = email
+
+    @IBAction func buttonClicked(_ sender: UIButton) {
+        userInfoDelegate?.buildView(with: user)
+    }
+    func setupCell(user: User?) {
+        self.user = user
+        nameLabel.text = user?.name
+        phoneNumberLabel.text = user?.phone
+        emailLabel.text = user?.email
     }
 }
 
+protocol UserInfoDelegate: AnyObject {
+    func buildView(with user: User?)
+}
 

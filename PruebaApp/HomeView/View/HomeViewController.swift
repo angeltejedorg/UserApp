@@ -10,9 +10,10 @@ import UIKit
 class HomeViewController: UITableViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
+
+    private let viewmodel = HomeViewModel()
     
-    let viewmodel = HomeViewModel()
-    private var isUserFound = true
+    private var shouldShowList = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,21 +38,19 @@ class HomeViewController: UITableViewController {
         
         viewmodel.filteredUserList.bind { [weak self] filteredUsers in
             guard let filteredUsers = filteredUsers  else { return }
-            if filteredUsers.isEmpty && self?.searchBar.text == ""{
-                self?.viewmodel.loadData()
-                return
-            } else if filteredUsers.isEmpty {
-                self?.isUserFound = false
+         
+            if filteredUsers.isEmpty {
+                self?.shouldShowList = false
                 self?.tableView.reloadData()
                 return
             }
-            self?.isUserFound = true
+            self?.shouldShowList = true
             self?.viewmodel.setFilteredUsers(filteredUsers)
         }
     }
     
-    
     func setupStyles() {
+        tableView.allowsSelection = false
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = Constants.primaryColor
@@ -65,42 +64,48 @@ class HomeViewController: UITableViewController {
 
 }
 
-extension HomeViewController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let searchBarText = searchBar.text else { return }
-            self.viewmodel.searchUser(searchBarText)
-        tableView.reloadData()
-        
-    }
-    
-}
-
-extension HomeViewController {
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewmodel.deleteItem(index: indexPath.row)
-    }
-}
-
 extension HomeViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isUserFound ? viewmodel.usersList.value?.count ?? 0 : 1
+        return shouldShowList ? viewmodel.usersList.value?.count ?? 0 : 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let user = viewmodel.getUser(at: indexPath.row)
         
-        if isUserFound {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.userItemCellIdentifier, for: indexPath) as! UserItemCellTableViewCell
-            cell.setupCell(name: user?.name, phone: user?.name, email: user?.name)
+        if shouldShowList {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.userItemCellIdentifier, for: indexPath) as! UserItemCell
+            cell.setupCell(user: user)
+            cell.userInfoDelegate = self
             return cell
         }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.notFoundCellIdentifier, for: indexPath) as! NotFoundCell
         return cell
+    }
+    
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let searchBarText = searchBar.text else { return }
+        
+        if searchBarText.isEmpty {
+            shouldShowList = true
+            viewmodel.loadData()
+            return
+        }
+        viewmodel.searchUser(searchBarText)
+        tableView.reloadData()
+    }
+}
+
+extension HomeViewController: UserInfoDelegate {
+    func buildView(with user: User?) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: Constants.postsViewControllerIdentifier) as! PostsViewController
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

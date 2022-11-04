@@ -11,7 +11,6 @@ import CoreData
 class HomeViewModel {
     
     var usersList: ObservableObject<[User]?> = ObservableObject(nil)
-    var postList: ObservableObject<[Post]?> = ObservableObject(nil)
     var filteredUserList: ObservableObject<[User]?> = ObservableObject(nil)
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -27,12 +26,6 @@ class HomeViewModel {
             if let userList = users {
                 self?.saveUserData(userList: userList)
             }
-        }
-    }
-    
-    func getPostsList() {
-        networkService.fetchPosts { [weak self] posts in
-//            self?.postList.value = posts
         }
     }
     
@@ -53,23 +46,7 @@ class HomeViewModel {
         }
     }
     
-    func savePostData(postList: [PostEntity]) {
-        
-        postList.forEach { postItem in
-            let newPost = Post(context: context)
-            newPost.id = postItem.id
-            newPost.userId = postItem.userId
-            newPost.title = postItem.title
-            newPost.body = postItem.body
-            
-            do {
-                try context.save()
-            } catch {
-                print("Error saving context \(error)")
-            }
-        }
-    }
-    
+  
     func loadData() {
         
         let request: NSFetchRequest<User> = User.fetchRequest()

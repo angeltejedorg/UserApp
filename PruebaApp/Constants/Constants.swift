@@ -14,4 +14,7 @@ struct Constants {
     static let userItemCellNibName = "UserItemCell"
     static let notFoundCellNibName = "NotFoundCell"
     static let notFoundCellIdentifier = "NotFoundCell"
+    static let postsCellIdentifier = "PostsCell"
+    static let postsCellNibName = "PostsCell"
+    static let postsViewControllerIdentifier = "PostsViewController"
 }
