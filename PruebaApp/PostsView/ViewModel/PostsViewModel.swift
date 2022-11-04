@@ -49,12 +49,9 @@ class PostsViewModel {
         let id = String(userId)
         let request: NSFetchRequest<Post> = Post.fetchRequest()
         
-        let predicate = NSPredicate(format: "userId MATCHES %@", id)
-        request.predicate = predicate
+        request.predicate = NSPredicate(format: "userId MATCHES %@", id)
         
-        let sortDescriptor = NSSortDescriptor(key: "id", ascending: true)
-        
-        request.sortDescriptors = [sortDescriptor]
+        request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         
         do {
             postList.value = try context.fetch(request)

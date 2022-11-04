@@ -21,7 +21,6 @@ class HomeViewModel {
     }
     
     func getUsersList() {
-        print("being called")
         networkService.fetchUsers { [weak self] users in
             if let userList = users {
                 self?.saveUserData(userList: userList)
@@ -46,7 +45,6 @@ class HomeViewModel {
         }
     }
     
-  
     func loadData() {
         
         let request: NSFetchRequest<User> = User.fetchRequest()
@@ -60,12 +58,10 @@ class HomeViewModel {
     
     func searchUser(_ text: String) {
         let request: NSFetchRequest<User> = User.fetchRequest()
-        let predicate = NSPredicate(format: "name CONTAINS[cd] %@", text)
-        request.predicate = predicate
         
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", text)
         
-        request.sortDescriptors = [sortDescriptor]
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         do {
             filteredUserList.value = try context.fetch(request)
@@ -76,18 +72,6 @@ class HomeViewModel {
     
     func setFilteredUsers(_ filteredUsers: [User]) {
         usersList.value = filteredUsers
-    }
-    
-    func deleteItem(index: Int) {
-        
-        guard let userList = usersList.value  else { return }
-        context.delete(userList[index])
-        usersList.value?.remove(at: index)
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context \(error)")
-        }
     }
     
     func getUser(at index: Int) -> User? {

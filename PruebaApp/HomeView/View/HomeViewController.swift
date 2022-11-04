@@ -17,8 +17,6 @@ class HomeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        searchBar.delegate = self
         viewmodel.loadData()
         setupBinders()
         setupStyles()
@@ -61,8 +59,7 @@ class HomeViewController: UITableViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
-
-}
+ }
 
 extension HomeViewController {
     
@@ -83,7 +80,6 @@ extension HomeViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.notFoundCellIdentifier, for: indexPath) as! NotFoundCell
         return cell
     }
-    
 }
 
 extension HomeViewController: UISearchBarDelegate {

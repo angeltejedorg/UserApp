@@ -28,7 +28,6 @@ class PostsViewController: UIViewController, UITableViewDelegate {
     
         tableView.register(UINib(nibName: Constants.postsCellNibName, bundle: nil), forCellReuseIdentifier: Constants.postsCellIdentifier)
         setupUI()
-        
     }
     
     func setupUI(){
@@ -65,6 +64,4 @@ extension PostsViewController: UITableViewDataSource {
         cell.setupCell(title: post?.title, body: post?.body)
         return cell
     }
-    
-    
 }
